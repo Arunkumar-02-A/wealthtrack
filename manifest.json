@@ -1,73 +1,46 @@
 {
   "name": "WealthTrack - Money Manager",
   "short_name": "WealthTrack",
-  "description": "Smart expense tracker with Tamil language support, bill reminders, budget limits, AI receipt scanner and savings analytics for Indian users",
-  "start_url": "/wealthtrack/index.html",
-  "scope": "/wealthtrack/",
+  "description": "Smart money manager with Tamil support, bill reminders, budget tracking and expense analytics",
+  "start_url": "/index.html",
   "display": "standalone",
-  "display_override": ["window-controls-overlay", "standalone", "minimal-ui"],
-  "orientation": "portrait-primary",
+  "orientation": "portrait",
   "background_color": "#07070E",
   "theme_color": "#7C6AFA",
-  "lang": "en-IN",
-  "dir": "ltr",
-  "categories": ["finance", "productivity", "utilities"],
-  "iarc_rating_id": "",
-  "prefer_related_applications": false,
+  "lang": "en",
+  "categories": ["finance", "productivity"],
   "icons": [
-    { "src": "icons/icon-72.png",  "sizes": "72x72",  "type": "image/png", "purpose": "any" },
-    { "src": "icons/icon-96.png",  "sizes": "96x96",  "type": "image/png", "purpose": "any" },
-    { "src": "icons/icon-128.png", "sizes": "128x128","type": "image/png", "purpose": "any" },
-    { "src": "icons/icon-144.png", "sizes": "144x144","type": "image/png", "purpose": "any" },
-    { "src": "icons/icon-152.png", "sizes": "152x152","type": "image/png", "purpose": "any" },
-    { "src": "icons/icon-192.png", "sizes": "192x192","type": "image/png", "purpose": "any" },
-    { "src": "icons/icon-384.png", "sizes": "384x384","type": "image/png", "purpose": "any" },
-    { "src": "icons/icon-512.png", "sizes": "512x512","type": "image/png", "purpose": "any" },
-    { "src": "icons/icon-192.png", "sizes": "192x192","type": "image/png", "purpose": "maskable" },
-    { "src": "icons/icon-512.png", "sizes": "512x512","type": "image/png", "purpose": "maskable" }
+    { "src": "icons/icon-72.png",   "sizes": "72x72",   "type": "image/png", "purpose": "any maskable" },
+    { "src": "icons/icon-96.png",   "sizes": "96x96",   "type": "image/png", "purpose": "any maskable" },
+    { "src": "icons/icon-128.png",  "sizes": "128x128", "type": "image/png", "purpose": "any maskable" },
+    { "src": "icons/icon-144.png",  "sizes": "144x144", "type": "image/png", "purpose": "any maskable" },
+    { "src": "icons/icon-152.png",  "sizes": "152x152", "type": "image/png", "purpose": "any maskable" },
+    { "src": "icons/icon-192.png",  "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "icons/icon-384.png",  "sizes": "384x384", "type": "image/png", "purpose": "any maskable" },
+    { "src": "icons/icon-512.png",  "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
   ],
   "screenshots": [
     {
       "src": "icons/icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "form_factor": "narrow",
-      "label": "WealthTrack Home Screen"
+      "form_factor": "narrow"
     }
   ],
   "shortcuts": [
     {
       "name": "Add Expense",
       "short_name": "Expense",
-      "description": "Quickly add a new expense",
-      "url": "/wealthtrack/index.html#expense",
-      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" }]
+      "description": "Quickly add an expense",
+      "url": "/index.html#expense",
+      "icons": [{ "src": "icons/icon-96.png", "sizes": "96x96" }]
     },
     {
       "name": "Add Income",
       "short_name": "Income",
       "description": "Quickly add income",
-      "url": "/wealthtrack/index.html#income",
-      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" }]
-    },
-    {
-      "name": "View Stats",
-      "short_name": "Stats",
-      "description": "View spending analytics",
-      "url": "/wealthtrack/index.html#stats",
-      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" }]
+      "url": "/index.html#income",
+      "icons": [{ "src": "icons/icon-96.png", "sizes": "96x96" }]
     }
-  ],
-  "protocol_handlers": [],
-  "edge_side_panel": {
-    "preferred_width": 400
-  },
-  "share_target": {
-    "action": "/wealthtrack/index.html",
-    "method": "GET",
-    "params": {
-      "title": "title",
-      "text": "text"
-    }
-  }
+  ]
 }

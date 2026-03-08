@@ -1,22 +1,20 @@
-// WealthTrack Service Worker v2.1
+// WealthTrack Service Worker v2.0
 const CACHE = 'wealthtrack-v2';
 const ASSETS = [
-  '/wealthtrack/',
-  '/wealthtrack/index.html',
-  '/wealthtrack/manifest.json',
-  '/wealthtrack/icons/icon-192.png',
-  '/wealthtrack/icons/icon-512.png'
+  '/',
+  '/index.html',
+  '/manifest.json'
 ];
 
+// Install — cache all assets
 self.addEventListener('install', e => {
   e.waitUntil(
-    caches.open(CACHE).then(cache => {
-      return cache.addAll(ASSETS);
-    }).catch(err => console.log('Cache failed:', err))
+    caches.open(CACHE).then(cache => cache.addAll(ASSETS))
   );
   self.skipWaiting();
 });
 
+// Activate — clean old caches
 self.addEventListener('activate', e => {
   e.waitUntil(
     caches.keys().then(keys =>
@@ -26,24 +24,19 @@ self.addEventListener('activate', e => {
   self.clients.claim();
 });
 
+// Fetch — serve from cache, fallback to network
 self.addEventListener('fetch', e => {
   e.respondWith(
     caches.match(e.request).then(cached => {
       if (cached) return cached;
       return fetch(e.request).then(res => {
-        if (res && res.status === 200) {
+        // Cache new responses
+        if (res && res.status === 200 && res.type === 'basic') {
           const clone = res.clone();
           caches.open(CACHE).then(c => c.put(e.request, clone));
         }
         return res;
-      }).catch(() => caches.match('/wealthtrack/index.html'));
+      }).catch(() => caches.match('/index.html'));
     })
   );
-});
-
-// Background sync support
-self.addEventListener('sync', e => {
-  if (e.tag === 'sync-transactions') {
-    console.log('Background sync triggered');
-  }
 });
